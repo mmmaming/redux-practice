@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../redux/actions';
+import { addTodo, addList } from '../redux/actions';
 
 class AddTodo extends Component {
 
@@ -8,9 +8,10 @@ class AddTodo extends Component {
         value: ''
     }
     add = () => {
-        const { addTodo } = this.props;
+        const { addTodo, addList } = this.props;
         const { value } = this.state;
         addTodo(value);
+        addList(value);
         this.setState({ value: '' })
     }
 
@@ -32,7 +33,8 @@ class AddTodo extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTodo: (x) => dispatch(addTodo(x))
+        addTodo: (x) => dispatch(addTodo(x)),
+        addList: (x) => dispatch(addList(x))
     };
 }
 

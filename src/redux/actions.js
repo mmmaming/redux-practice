@@ -22,3 +22,10 @@ export const toggleTodo = (id) => ({
         id
     }
 });
+
+export const addList = content => ({
+    type: 'ADD_LIST',
+    payload: {
+        content
+    }
+});
